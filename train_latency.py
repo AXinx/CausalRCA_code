@@ -53,7 +53,7 @@ metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_ne
 
 idx = args.indx
 #idx = 3
-f = open('./data_collected/cpu-hog2_'+names[idx]+'.pkl', 'rb')
+f = open('./data_collected/cpu-hog1_'+names[idx]+'.pkl', 'rb')
 #f = open('without-stress.pkl', 'rb') 
 all_data = pkl.load(f) 
 
@@ -318,7 +318,7 @@ try:
             A_new = origin_A.data.clone()
             h_A_new = _h_A(A_new, data_variable_size)
             if h_A_new.item() > 0.25 * h_A_old:
-                c_A*=10
+                c_A*=1000
             else:
                 break
 

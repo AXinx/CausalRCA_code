@@ -1,8 +1,8 @@
-output=latency_eta1000.txt;
+output=cpu_latency_eta1000.txt;
 
 echo $(date +%Y-%m-%d" "%H:%M:%S) | tee -a $output;
 
-for((i=0;i<=6;i++));
+for((i=5;i<=5;i++));
 do
 echo $i | tee -a $output;
 for((j=1;j<=10;j++));
