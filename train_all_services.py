@@ -54,7 +54,7 @@ names = ['front-end', 'user', 'catalogue', 'orders', 'carts', 'payment', 'shippi
 metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_net_in', 'ctn_net_out']
 idx = args.indx
 #idx = 2
-f = open('./data_collected/cpu-hog2_'+names[idx]+'.pkl', 'rb')
+f = open('./data_collected/latency1_'+names[idx]+'.pkl', 'rb')
 data = pkl.load(f)
 
 #data = data.iloc[:,1:]

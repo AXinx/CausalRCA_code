@@ -55,7 +55,7 @@ metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_ne
 idx = args.indx
 #idx = 6
 
-f = open('./data_collected/memory-leak1_'+names[idx]+'.pkl', 'rb')
+f = open('./data_collected/cpu-hog2_'+names[idx]+'.pkl', 'rb')
 all_data = pkl.load(f)
 
 name=[]
@@ -138,7 +138,7 @@ tril_indices = get_tril_offdiag_indices(data_variable_size)
 
 if CONFIG.prior:
     prior = np.array([0.91, 0.03, 0.03, 0.03])  # hard coded for now
-    print("Using prior")
+    print("Using prior")  
     print(prior)
     log_prior = torch.DoubleTensor(np.log(prior))
     log_prior = torch.unsqueeze(log_prior, 0)

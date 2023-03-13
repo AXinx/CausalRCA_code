@@ -53,7 +53,7 @@ metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_ne
 
 idx = args.indx
 #idx = 3
-f = open('./data_collected/latency1_'+names[idx]+'.pkl', 'rb')
+f = open('./data_collected/cpu-hog2_'+names[idx]+'.pkl', 'rb')
 #f = open('without-stress.pkl', 'rb') 
 all_data = pkl.load(f) 
 
