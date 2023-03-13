@@ -33,7 +33,10 @@ warnings.filterwarnings('ignore')
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('indx', type=int, default=0, help='index')
+parser.add_argument('--indx', type=int, default=0, help='index')
+parser.add_argument('--atype', type=str, default='cpu-hog1_', help='anomaly type')
+parser.add_argument('--gamma', type=float, default=0.25, help='gamma')
+parser.add_argument('--eta', type=int, default=10, help='eta')
 args = parser.parse_args()
 
 CONFIG.cuda = torch.cuda.is_available()
@@ -52,8 +55,9 @@ names = ['front-end', 'user', 'catalogue', 'orders', 'carts', 'payment', 'shippi
 metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_net_in', 'ctn_net_out']
 
 idx = args.indx
+atype = args.atype
 #idx = 3
-f = open('./data_collected/cpu-hog1_'+names[idx]+'.pkl', 'rb')
+f = open('./data_collected/'+atype+names[idx]+'.pkl', 'rb')
 #f = open('without-stress.pkl', 'rb') 
 all_data = pkl.load(f) 
 
@@ -264,6 +268,9 @@ def train(epoch, best_val_loss, lambda_A, c_A, optimizer):
 # main
 #===================================
 
+gamma = args.gamma
+eta = args.eta
+
 t_total = time.time()
 best_ELBO_loss = np.inf
 best_NLL_loss = np.inf
@@ -317,8 +324,8 @@ try:
             # update parameters
             A_new = origin_A.data.clone()
             h_A_new = _h_A(A_new, data_variable_size)
-            if h_A_new.item() > 0.25 * h_A_old:
-                c_A*=1000
+            if h_A_new.item() > gamma * h_A_old:
+                c_A*=eta
             else:
                 break
 
