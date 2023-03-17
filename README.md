@@ -15,8 +15,11 @@ We collect both service-level and resource-level data. At the service level, we 
 
 ## Code 
 
-We provide codes for benchmark methods and CausalRCA, including the three experiments in our paper for latency, single-serve, and full-serve tests.
+We provide codes for benchmark methods and CausalRCA, including the three experiments in our paper for latency, single-service, and full-service tests.
 
 For benchmark test, run *bench_test-latency.ipynb*, *bench_test-single_service.ipynb*, or *bench_test-all_service.ipynb*.
 
 For CausalRCA, run *train_latency.py*, *train_single_service.py*, or *train_all_services.py*. 
+
+To repeat experiments, *test_latency_per.sh*, *test_single_service_per.sh*, and *test_all_service_per.sh* can be used. 
+
