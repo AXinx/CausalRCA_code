@@ -13,7 +13,7 @@ class CONFIG:
     # data_filename = "alarm.csv"
 
     # Epochs
-    epochs = 500 #300
+    epochs = 500 
 
     # Batch size (note: should be divisible by sample size, otherwise throw an error)
     batch_size = 50

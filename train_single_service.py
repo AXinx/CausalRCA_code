@@ -57,6 +57,7 @@ metrics = ['ctn_latency', 'ctn_cpu', 'ctn_mem', 'ctn_write', 'ctn_read', 'ctn_ne
 
 idx = args.indx
 atype = args.atype
+
 #idx = 6
 
 f = open('./data_collected/'+atype+names[idx]+'.pkl', 'rb')
