@@ -19,9 +19,9 @@ We collect both service-level and resource-level data. At the service level, we 
 
 To run these python files, first install requirements with
 
-'''
+```
 pip install -r requirements.txt
-'''
+```
 
 We provide codes for benchmark methods and CausalRCA, including the three experiments in our paper for latency, single-service, and full-service tests.
 
